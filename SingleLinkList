@@ -29,7 +29,23 @@ void insertattail(node* &tail,int d)
     tail=temp;
    
 }
-void insertatpos(int pos,int d,)
+void insertatpos(node* &head,int pos,int d)
+{
+   node* temp=head;
+   node* temp2=new node(d);
+   if(pos==1){
+      insertathead(head,0);
+      return;
+       
+   }
+   while(pos-2)
+   {
+       temp=temp->next;--pos;
+   }
+   temp2->next=temp->next;
+   temp->next=temp2;
+   
+}
 
 void printll(node* &head)
 {
@@ -47,12 +63,19 @@ int main()
     node* node1=new node(10);
     node* tail=node1;
     node* head= node1;
+    printll(head);cout<<"\n";//1
+    
     insertathead(head,9);
-    printll(head);cout<<"\n";
+    printll(head);cout<<"\n";//2
+    
     insertattail(tail,11);
-    printll(head);cout<<"\n";
+    printll(head);cout<<"\n";//3
+    
    insertattail(tail,12);
-   printll(head);cout<<"\n";
+   printll(head);cout<<"\n";//4
+   
+   insertatpos(head,1,0);
+   printll(head);cout<<"\n";//5
    
  
 }
